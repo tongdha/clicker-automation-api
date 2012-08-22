@@ -1,0 +1,17 @@
+<%= form_for(@crawler_config) do |f| %>
+  <% if @crawler_config.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@crawler_config.errors.count, "error") %> prohibited this crawler_config from being saved:</h2>
+
+      <ul>
+      <% @crawler_config.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
