@@ -3,7 +3,14 @@ require 'api_constraints'
 ClickerAutomationApi::Application.routes.draw do
   namespace :api do
     scope module: :v1, constraints: ApiConstraints.new(version: 1, default: :true) do
+      resources :crawler_configs do
+        resources :crawl_histories do
+          get :manage, :on => :collection
+        end
+      end
+      
       resources :crawler_configs
+      resources :crawl_histories
     end
   end
   
