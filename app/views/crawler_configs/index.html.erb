@@ -2,13 +2,17 @@
 
 <table>
   <tr>
-    <th></th>
-    <th></th>
+    <th>Description</th>
+    <th>CrawlingEnabled</th>
+    <th>startURL</th>
     <th></th>
   </tr>
 
 <% @crawler_configs.each do |crawler_config| %>
   <tr>
+    <td><%= crawler_config.description %></td>
+    <td><%= crawler_config.crawlingEnabled %></td>
+    <td><%= crawler_config.startURL %></td>
     <td><%= link_to 'Show', crawler_config %></td>
     <td><%= link_to 'Edit', edit_crawler_config_path(crawler_config) %></td>
     <td><%= link_to 'Destroy', crawler_config, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -18,4 +22,4 @@
 
 <br />
 
-<%= link_to 'New Crawler config', new_crawler_config_path %>
+<%= link_to 'New Crawler Config', new_crawler_config_path %>

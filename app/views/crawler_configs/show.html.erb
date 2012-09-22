@@ -1,5 +1,29 @@
 <p id="notice"><%= notice %></p>
 
+<p>
+  <b>Description:</b>
+  <%= @crawler_config.description %>
+</p>
+
+<p>
+  <b>crawlingEnabled:</b>
+  <%= @crawler_config.crawlingEnabled %>
+</p>
+
+<p>
+  <b>startURL:</b>
+  <%= @crawler_config.startURL %>
+</p>
+
+<p>
+  <b>intervalInHours:</b>
+  <%= @crawler_config.intervalInHours %>
+</p>
+
+<p>
+  <b>useSourceId:</b>
+  <%= @crawler_config.useSourceId %>
+</p>
 
 <%= link_to 'Edit', edit_crawler_config_path(@crawler_config) %> |
 <%= link_to 'Back', crawler_configs_path %>

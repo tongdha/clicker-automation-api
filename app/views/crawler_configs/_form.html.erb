@@ -11,6 +11,31 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :crawlingEnabled %><br />
+    <%= f.text_field :crawlingEnabled %>
+  </div>
+  <div class="field">
+    <%= f.label :startURL %><br />
+    <%= f.text_field :startURL %>
+  </div>
+  <div class="field">
+    <%= f.label :mediaTypeId %><br />
+    <%= f.text_field :mediaTypeId %>
+  </div>
+  <div class="field">
+    <%= f.label :distributorProfileId %><br />
+    <%= f.text_field :distributorProfileId %>
+  </div>
+  <div class="field">
+    <%= f.label :maxDepth %><br />
+    <%= f.text_field :maxDepth %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
