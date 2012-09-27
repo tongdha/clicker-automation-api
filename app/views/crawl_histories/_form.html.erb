@@ -1,0 +1,19 @@
+<%= form_for [@crawler_config, @crawl_history] do |f| %>
+  <p>
+    <%= f.label :startTime %><br>
+    <%= f.text_field :startTime %>
+  </p>
+  <p>
+    <%= f.label :totalTimeInSecs %><br>
+    <%= f.text_field :totalTimeInSecs %>
+  </p>
+  <p>
+    <%= f.label :ip %><br>
+    <%= f.text_field :ip %>
+  </p>
+  <p>
+    <%= f.label :pid %><br>
+    <%= f.text_area :pid %>
+  </p>
+  <%= f.submit %>
+<% end %>

@@ -27,3 +27,12 @@
 
 <%= link_to 'Edit', edit_crawler_config_path(@crawler_config) %> |
 <%= link_to 'Back', crawler_configs_path %>
+
+<h3>Crawl Histories</h3>
+<ul id='crawl_histories'>
+  <% @crawler_config.crawl_histories.each do |crawl_history| %>
+    <li>
+      <%= crawl_history.crawlHistoryId %> <%= crawl_history.startTime %> <%= crawl_history.endTime %> <%= link_to crawl_history.totalTimeInSecs, [@crawler_config, crawl_history] %>
+    </li>
+  <% end %>
+</ul>

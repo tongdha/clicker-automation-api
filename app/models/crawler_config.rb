@@ -5,6 +5,6 @@ class CrawlerConfig < ActiveRecord::Base
   
   validates :startURL, :presence => true
   
-  has_many :crawl_histories, :foreign_key => "crawlerConfigId"
+  has_many :crawl_histories, :foreign_key => "crawlerConfigId", :dependent => :delete_all
   
 end

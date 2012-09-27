@@ -14,7 +14,9 @@ ClickerAutomationApi::Application.routes.draw do
     end
   end
   
-  resources :crawler_configs
+  resources :crawler_configs do
+    resources :crawl_histories
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

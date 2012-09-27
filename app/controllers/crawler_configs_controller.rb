@@ -1,4 +1,8 @@
 class CrawlerConfigsController < ApplicationController
+  before_filter :find_crawler_config, :only => [:show,
+                                                :edit,
+                                                :update,
+                                                :destroy]
   
   respond_to :json, :xml
   
@@ -11,7 +15,6 @@ class CrawlerConfigsController < ApplicationController
   # GET /crawler_configs/1
   # GET /crawler_configs/1.json
   def show
-    @crawler_config = CrawlerConfig.find(params[:id])
   end
 
   # GET /crawler_configs/new
@@ -22,7 +25,6 @@ class CrawlerConfigsController < ApplicationController
 
   # GET /crawler_configs/1/edit
   def edit
-    @crawler_config = CrawlerConfig.find(params[:id])
   end
 
   # POST /crawler_configs
@@ -41,8 +43,6 @@ class CrawlerConfigsController < ApplicationController
   # PUT /crawler_configs/1
   # PUT /crawler_configs/1.json
   def update
-    @crawler_config = CrawlerConfig.find(params[:id])
-    
     if @crawler_config.update_attributes(params[:crawler_config])
       flash[:notice] = "Crawler Config has been updated!"
       redirect_to @crawler_config
@@ -55,11 +55,17 @@ class CrawlerConfigsController < ApplicationController
   # DELETE /crawler_configs/1
   # DELETE /crawler_configs/1.json
   def destroy
-    @crawler_config = CrawlerConfig.find(params[:id])
-    @crawler_config.destroy
-    
     @crawler_config.destroy
     flash[:notice] = "Crawler Config has been deleted!"
     redirect_to crawler_configs_path
   end
+  
+  private
+    def find_crawler_config
+      @crawler_config = CrawlerConfig.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+      flash[:alert] = "The crawler config you were looking" +
+                      " for could not be found."
+      redirect_to crawler_configs_path
+    end
 end

@@ -1,0 +1,2 @@
+module CrawlHistoriesHelper
+end
