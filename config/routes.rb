@@ -1,6 +1,8 @@
 require 'api_constraints'
 
 ClickerAutomationApi::Application.routes.draw do
+  devise_for :dusers
+
   namespace :api do
     scope module: :v1, constraints: ApiConstraints.new(version: 1, default: :true) do
       resources :crawler_configs do

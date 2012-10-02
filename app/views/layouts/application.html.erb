@@ -7,9 +7,24 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<% flash.each do |key, value| %>
+	    <div class='flash' id='<%= key %>'>
+	      <%= value %>
+	    </div>
+	<% end %>
 
 <h2><%= link_to "Clicker Automation", root_path %></h2>
 <br>
+
+<nav>
+    <% if duser_signed_in? %>
+      Signed in as <%= current_duser.email %>
+      <%= link_to "Sign out", destroy_duser_session_path, :method => :delete%>
+    <% else %>
+      <%= link_to "Sign up", new_duser_registration_path %>
+      <%= link_to "Sign in", new_duser_session_path %>
+    <% end %>
+</nav>
 <%= yield %>
 
 </body>

@@ -9,6 +9,8 @@ gem 'mysql2'
 
 gem 'rabl'
 
+gem 'devise', '1.4.9'
+
 group :development, :test do
   gem 'rspec-rails', '2.11.0'
 end
