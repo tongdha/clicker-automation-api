@@ -28,11 +28,15 @@
 <%= link_to 'Edit', edit_crawler_config_path(@crawler_config) %> |
 <%= link_to 'Back', crawler_configs_path %>
 
+<br>
+
+<%= link_to "New Crawl History", new_crawler_config_crawl_history_path(@crawler_config) %>
+
 <h3>Crawl Histories</h3>
 <ul id='crawl_histories'>
   <% @crawler_config.crawl_histories.each do |crawl_history| %>
     <li>
-      <%= crawl_history.crawlHistoryId %> <%= crawl_history.startTime %> <%= crawl_history.endTime %> <%= link_to crawl_history.totalTimeInSecs, [@crawler_config, crawl_history] %>
+      <%= crawl_history.crawlHistoryId %> <%= crawl_history.startTime %> <%= crawl_history.endTime %> <%= crawl_history.ip %> <%= link_to crawl_history.totalTimeInSecs, [@crawler_config, crawl_history] %>
     </li>
   <% end %>
 </ul>

@@ -1,4 +1,6 @@
 class CrawlerConfigsController < ApplicationController
+  
+  before_filter :authorize_admin!, :except => [:index, :show]
   before_filter :find_crawler_config, :only => [:show,
                                                 :edit,
                                                 :update,

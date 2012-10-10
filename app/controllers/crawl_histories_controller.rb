@@ -5,6 +5,7 @@ class CrawlHistoriesController < ApplicationController
                                         :update,
                                         :destroy,
                                         :watch]
+  before_filter :authenticate_duser!, :except => [:index, :show]
   
   def show
   end
@@ -17,7 +18,7 @@ class CrawlHistoriesController < ApplicationController
   end
   
   def create
-    @crawl_history = @crawler_config.crawl_histories.build(params[:crawl_history])
+    @crawl_history = @crawler_config.crawl_histories.build(params[:crawl_history].merge!(:duser => current_duser))
     if @crawl_history.save
       flash[:notice] = "Crawl History has been created."
       redirect_to [@crawler_config, @crawl_history]

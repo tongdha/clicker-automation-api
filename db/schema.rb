@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120927192537) do
+ActiveRecord::Schema.define(:version => 20121009053321) do
 
   create_table "__c3p0_test", :id => false, :force => true do |t|
     t.string "a", :limit => 1
@@ -108,6 +108,7 @@ ActiveRecord::Schema.define(:version => 20120927192537) do
     t.integer  "crawlerConfigId",     :limit => 8,  :null => false
     t.string   "ip",                  :limit => 20
     t.string   "pid",                 :limit => 20
+    t.integer  "duser_id"
   end
 
   add_index "crawl_history", ["crawlerConfigId"], :name => "crawlerConfigId"
@@ -191,6 +192,7 @@ ActiveRecord::Schema.define(:version => 20120927192537) do
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
+    t.boolean  "admin"
   end
 
   add_index "dusers", ["email"], :name => "index_dusers_on_email", :unique => true
@@ -390,15 +392,15 @@ ActiveRecord::Schema.define(:version => 20120927192537) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "login",                                  :null => false
-    t.string   "email",                                  :null => false
-    t.string   "crypted_password",                       :null => false
-    t.string   "password_salt",                          :null => false
-    t.string   "persistence_token",                      :null => false
-    t.string   "single_access_token",                    :null => false
-    t.string   "perishable_token",                       :null => false
-    t.integer  "login_count",          :default => 0,    :null => false
-    t.integer  "failed_login_count",   :default => 0,    :null => false
+    t.string   "login",                                   :null => false
+    t.string   "email",                                   :null => false
+    t.string   "crypted_password",                        :null => false
+    t.string   "password_salt",                           :null => false
+    t.string   "persistence_token",                       :null => false
+    t.string   "single_access_token",                     :null => false
+    t.string   "perishable_token",                        :null => false
+    t.integer  "login_count",          :default => 0,     :null => false
+    t.integer  "failed_login_count",   :default => 0,     :null => false
     t.datetime "last_request_at"
     t.datetime "current_login_at"
     t.datetime "last_login_at"
@@ -413,6 +415,7 @@ ActiveRecord::Schema.define(:version => 20120927192537) do
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
+    t.boolean  "admin",                :default => false
   end
 
   create_table "video_metadata", :primary_key => "videoMetadataId", :force => true do |t|
