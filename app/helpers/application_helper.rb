@@ -1,6 +1,6 @@
 module ApplicationHelper
   def admins_only(&block)
-    block.call if current_user.try(:admin?)
+    block.call if current_duser.try(:admin?)
     nil
   end
 end
