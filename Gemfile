@@ -11,6 +11,8 @@ gem 'rabl'
 
 gem 'devise', '1.4.9'
 
+gem 'dynamic_form'
+
 group :development, :test do
   gem 'rspec-rails', '2.11.0'
 end

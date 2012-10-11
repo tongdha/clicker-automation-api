@@ -1,6 +1,7 @@
 require 'api_constraints'
 
 ClickerAutomationApi::Application.routes.draw do
+
   devise_for :dusers
 
   namespace :api do
@@ -14,6 +15,11 @@ ClickerAutomationApi::Application.routes.draw do
       resources :crawler_configs
       resources :crawl_histories
     end
+  end
+  
+  namespace :admin do
+    root :to => "base#index"
+    resources :dusers
   end
   
   resources :crawler_configs do

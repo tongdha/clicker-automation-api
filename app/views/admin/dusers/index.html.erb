@@ -1,0 +1,6 @@
+<%= link_to "New User", new_admin_duser_path %>
+<ul>
+  <% @dusers.each do |duser| %>
+    <li><%= link_to duser.email, [:admin, duser] %></li>
+  <% end %>
+</ul>

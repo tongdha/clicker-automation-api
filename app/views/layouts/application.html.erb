@@ -24,6 +24,9 @@
       <%= link_to "Sign up", new_duser_registration_path %>
       <%= link_to "Sign in", new_duser_session_path %>
     <% end %>
+   	<%= admins_only do %>
+	<%= link_to "Admin", admin_root_path %><br>
+	<% end %>
 </nav>
 <%= yield %>
 
