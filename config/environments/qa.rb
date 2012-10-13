@@ -48,7 +48,7 @@ ClickerAutomationApi::Application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.default_url_options = { :host => 'app.feeder.qa.clickermedia.com:3005' }
   config.action_mailer.smtp_settings = {
   :address => "smtp.gmail.com",
   :port => 587,
@@ -57,4 +57,5 @@ ClickerAutomationApi::Application.configure do
   :password => "mimi168899",
   :authentication => :plain
   }
+  
 end
