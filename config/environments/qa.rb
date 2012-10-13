@@ -50,12 +50,8 @@ ClickerAutomationApi::Application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.default_url_options = { :host => 'app.feeder.qa.clickermedia.com:3005' }
   config.action_mailer.smtp_settings = {
-  :address => "smtp.gmail.com",
-  :port => 587,
-  :domain => "mail.google.com",
-  :user_name => "tom4111@gmail.com",
-  :password => "mimi168899",
-  :authentication => :plain
+  :address => "localhost",
+  :domain => "app.feeder.qa.clickermedia.com"
   }
   
 end
