@@ -56,4 +56,5 @@ ClickerAutomationApi::Application.configure do
   :user_name => "tom4111@gmail.com",
   :password => "mimi168899",
   :authentication => :plain
+  }
 end
