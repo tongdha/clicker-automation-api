@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121009053321) do
+ActiveRecord::Schema.define(:version => 20121014213039) do
 
   create_table "__c3p0_test", :id => false, :force => true do |t|
     t.string "a", :limit => 1
@@ -336,6 +336,15 @@ ActiveRecord::Schema.define(:version => 20121009053321) do
   add_index "machine", ["ipAddress"], :name => "ipAddress", :unique => true
   add_index "machine", ["name"], :name => "name", :unique => true
   add_index "machine", ["serverFarmId"], :name => "FK31314447776599A2"
+
+  create_table "permissions", :force => true do |t|
+    t.integer  "duser_id"
+    t.integer  "thing_id"
+    t.string   "thing_type"
+    t.string   "action"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "server_farm", :primary_key => "serverFarmId", :force => true do |t|
     t.string "description"

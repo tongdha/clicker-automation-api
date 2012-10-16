@@ -43,8 +43,8 @@ class Admin::DusersController < Admin::BaseController
   end
   
   def create
+    @duser = Duser.new(params[:duser])
     set_admin
-    @duser.admin = params[:duser][:admin] == "1"
     if @duser.save
       flash[:notice] = "User has been created."
       redirect_to admin_dusers_path

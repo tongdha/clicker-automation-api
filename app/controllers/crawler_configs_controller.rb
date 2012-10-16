@@ -1,17 +1,15 @@
 class CrawlerConfigsController < ApplicationController
   
   before_filter :authorize_admin!, :except => [:index, :show]
-  before_filter :find_crawler_config, :only => [:show,
-                                                :edit,
-                                                :update,
-                                                :destroy]
+  before_filter :authenticate_duser!, :only => [:index, :show]
+  before_filter :find_crawler_config, :only => [:show, :edit, :update, :destroy]
   
   respond_to :json, :xml
   
   # GET /crawler_configs
   # GET /crawler_configs.json
   def index
-    @crawler_configs = CrawlerConfig.all
+    @crawler_configs = CrawlerConfig.for(current_duser).all
   end
 
   # GET /crawler_configs/1
@@ -64,7 +62,8 @@ class CrawlerConfigsController < ApplicationController
   
   private
     def find_crawler_config
-      @crawler_config = CrawlerConfig.find(params[:id])
+      #@crawler_config = CrawlerConfig.find(params[:id])
+      @crawler_config = CrawlerConfig.for(current_duser).find(params[:id])
       rescue ActiveRecord::RecordNotFound
       flash[:alert] = "The crawler config you were looking" +
                       " for could not be found."

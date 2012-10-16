@@ -46,7 +46,7 @@ Devise.setup do |config|
   # config.params_authenticatable = true
 
   # Tell if authentication through HTTP Basic Auth is enabled. False by default.
-  # config.http_authenticatable = false
+  config.http_authenticatable = true
 
   # If http headers should be returned for AJAX requests. True by default.
   # config.http_authenticatable_on_xhr = true
@@ -189,6 +189,7 @@ Devise.setup do |config|
   # The :"*/*" and "*/*" formats below is required to match Internet
   # Explorer requests.
   # config.navigational_formats = [:"*/*", "*/*", :html]
+  config.navigational_formats = [:"*/*", "*/*", :html]
 
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :delete
